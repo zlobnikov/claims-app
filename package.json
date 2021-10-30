@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/zlobnikov/claims-app/issues"
   },
-  "homepage": "https://github.com/zlobnikov/claims-app#readme"
+  "homepage": "https://github.com/zlobnikov/claims-app#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
