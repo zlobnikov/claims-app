@@ -8,7 +8,7 @@ const DB_PASSWORD = process.env.DB_PASSWORD;
 const DB_CLUSTER = process.env.DB_CLUSTER;
 const DB_NAME = process.env.DB_NAME;
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_CLUSTER}.1thyt.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
