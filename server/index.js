@@ -11,8 +11,6 @@ const DB_NAME = process.env.DB_NAME;
 
 const PORT = process.env.PORT || 3000;
 
-const indexHtml = path.join(__dirname, '../client/index.html');
-
 const uri = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@${DB_CLUSTER}.1thyt.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -23,10 +21,12 @@ client.connect(err => {
 });
 
 const app = express();
-app.use(express.static(indexHtml));
+app.use(express.static(path.join(__dirname, '..', 'build')));
 
-app.get('/', (req, res) => res.sendFile(indexHtml));
 app.get('/ping', (req, res) => res.json({ ping: 'pong' }));
+app.get('/*', (req, res) => res.sendFile(
+  path.join(__dirname, '..', 'build', 'index.html'))
+);
 
 app.listen(PORT, () => {
   console.log(`Server started on port ${PORT}`);
