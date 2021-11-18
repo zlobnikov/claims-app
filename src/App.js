@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes, Route} from 'react-router-dom';
+
 import './App.css';
 
-function App() {
+function MainPage() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Main Page</p>
+        <a className="App-link" href="/claims">to Claims Page</a>
       </header>
     </div>
+  );
+}
+
+function ClaimsPage() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <p>Claims Page</p>
+        <a className="App-link" href="/">to Main Page</a>
+      </header>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/claims" element={<ClaimsPage />} />
+        <Route path="*" element={<MainPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
