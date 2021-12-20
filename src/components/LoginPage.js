@@ -1,12 +1,21 @@
 import React from 'react';
+import LoginForm from './LoginForm';
+import Footer from './Footer';
+import './LoginPage.scss';
 
 function LoginPage() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Login Page</p>
-      </header>
-    </div>
+    <>
+      <div className="login-page">
+        <div className="wrapper">
+          <aside className="title-image"></aside>
+
+          <LoginForm />
+        </div>
+
+        <Footer />
+      </div>
+    </>
   );
 }
 
