@@ -1,0 +1,36 @@
+$light-green: #D3EDE1;
+$dark-green: #7DB59A;
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  .wrapper {
+    display: flex;
+    flex: 1 0 auto;
+
+    .title-image {
+      width: 50%;
+      background: url('../images/title-image.png') center no-repeat;
+      background-color: $light-green;
+
+      @media (max-width: 1400px) {
+        background-size: contain;
+      }
+
+      @media (max-width: 640px) {
+        display: none;
+      }
+    }
+
+    // main {
+    //   width: 50%;
+    // }
+  }
+
+  footer {
+    flex: 0 0 auto;
+    background-color: $dark-green;
+  }
+}
